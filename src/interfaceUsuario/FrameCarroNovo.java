@@ -25,7 +25,7 @@ public class FrameCarroNovo extends javax.swing.JPanel {
 
     //<editor-fold defaultstate="collapsed" desc="Atributos">
     private ListaDeAutomoveis listaAutomoveis;
-    Carro carro;
+    CarroNovo carro;
     private int excluira;
     //</editor-fold>
 
@@ -237,6 +237,11 @@ public class FrameCarroNovo extends javax.swing.JPanel {
         });
 
         jButton5.setText("Limpar busca");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         editar.setText("Editar");
         editar.addActionListener(new java.awt.event.ActionListener() {
@@ -280,7 +285,7 @@ public class FrameCarroNovo extends javax.swing.JPanel {
                         .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(visualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                    .addComponent(visualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -542,30 +547,30 @@ public class FrameCarroNovo extends javax.swing.JPanel {
                             .addComponent(jComboBoxMarcaCadastrar1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel24)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldMediaKmCadastrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(129, 129, 129))
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel19)
-                                    .addComponent(jLabel20)
-                                    .addComponent(jLabel38))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldPassageirosCadastrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jTextFieldPortasCadastrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldAroCadastrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldAnoCadastrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel19)
+                                            .addComponent(jLabel20)
+                                            .addComponent(jLabel38))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextFieldPassageirosCadastrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jTextFieldPortasCadastrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jTextFieldAroCadastrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(64, 64, 64)
+                                        .addComponent(jLabel16)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextFieldAnoCadastrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel4Layout.createSequentialGroup()
@@ -773,7 +778,7 @@ public class FrameCarroNovo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     //</editor-fold>
 
-     //<editor-fold defaultstate="collapsed" desc="Botao excluir">
+    //<editor-fold defaultstate="collapsed" desc="Botao excluir">
     private void excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirActionPerformed
         DefaultListModel listModel = new DefaultListModel();
         excluira = JOptionPane.showConfirmDialog(
@@ -783,10 +788,11 @@ public class FrameCarroNovo extends javax.swing.JPanel {
                 JOptionPane.YES_NO_OPTION);
         if (excluira == JOptionPane.YES_OPTION) {
             listaAutomoveis.removeAutomovel(Integer.parseInt(
-                    jListAutomovel. getSelectedValue().toString()));
+                    jListAutomovel.getSelectedValue().toString()));
             boolean boo = listaAutomoveis.escreverArquivo();
-            if(boo)
+            if (boo) {
                 System.out.println("excluido de boa!!! :)");
+            }
             listModel.removeAllElements();
             listModel.clear();
             listarTudo();
@@ -807,14 +813,14 @@ public class FrameCarroNovo extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAroCadastrar2ActionPerformed
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="main inutil">
     public static void main(String[] args) {
         FrameCarroNovo c = new FrameCarroNovo();
         c.setVisible(true);
     }
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="Botao cadastrar">
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
         JTabbedPaneCarroNovo.setSelectedIndex(1);
@@ -859,10 +865,14 @@ public class FrameCarroNovo extends javax.swing.JPanel {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Funcoes Listar">
-    
     //<editor-fold defaultstate="collapsed" desc="Listar">
+    /**
+     * metodo listar um carro novo
+     *
+     * @param l
+     */
     private void listar(Automovel l) {
-        
+
         DefaultListModel listModel = new DefaultListModel();
         if (l != null) {
 
@@ -874,8 +884,14 @@ public class FrameCarroNovo extends javax.swing.JPanel {
         }
     }
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="Listar varios">
+    /**
+     * metodo para listar varios automoveis
+     *
+     * @param lista
+     * @return true caso consiga, false caso contrario
+     */
     private boolean listarVarios(List<Automovel> lista) {
         DefaultListModel listModel = new DefaultListModel();
         jListAutomovel.removeAll();
@@ -892,10 +908,13 @@ public class FrameCarroNovo extends javax.swing.JPanel {
         return true;
     }
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="Listar tudo">
+    /**
+     * listar varios carros novos
+     */
     private void listarTudo() {
-        
+
         DefaultListModel listModel = new DefaultListModel();
 
         for (Automovel l : listaAutomoveis.getListaDeAutomoveis()) {
@@ -906,9 +925,9 @@ public class FrameCarroNovo extends javax.swing.JPanel {
         }
     }
     //</editor-fold>
-    
-    //</editor-fold>
 
+    //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Buscar">
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
@@ -956,7 +975,7 @@ public class FrameCarroNovo extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="Salvar cadastrar">
     private void jButtonSalvarCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarCadastrarActionPerformed
         int ano = 0, aro = 0, qtdPassageiros = 0, qtdPortas = 0;
@@ -1014,27 +1033,29 @@ public class FrameCarroNovo extends javax.swing.JPanel {
             carro.setQtdPortas(Integer.parseInt(jTextFieldPortasCadastrar1.getText()));
             carro.setPotenciaMotor(Double.parseDouble(jTextFieldPotenciaDoMotorCadastrar1.getText()));
             carro.setCambio(Cambio.verificaCambio(jComboBoxCambioCadastrar1.getSelectedItem().toString()));
-            
+
             boolean boo = listaAutomoveis.escreverArquivo();
-            
-            if(boo){
+
+            if (boo) {
                 JOptionPane.showMessageDialog(null, "Ecrito com sucesso");
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Erro!");
             }
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
         }
     }//GEN-LAST:event_jButtonSalvarEditarActionPerformed
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="sei la">
     private void jListAutomovelValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListAutomovelValueChanged
-        // TODO add your handling code here:
+        editar.setEnabled(true);
+        excluir.setEnabled(true);
+        visualizar.setEnabled(true);
     }//GEN-LAST:event_jListAutomovelValueChanged
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="Visualizar mais">
     private void visualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizarActionPerformed
         try {
@@ -1067,10 +1088,14 @@ public class FrameCarroNovo extends javax.swing.JPanel {
     }//GEN-LAST:event_visualizarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        listarVarios(null);
+    }//GEN-LAST:event_jButton5ActionPerformed
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="Variables declaration">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane JTabbedPaneCarroNovo;
