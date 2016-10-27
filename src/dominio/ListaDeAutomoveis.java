@@ -42,6 +42,17 @@ public class ListaDeAutomoveis implements ListaAutomoveis {
     }
     //</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc="Consultar por Codigo">
+    public Automovel consultarPorCodigo(int codigo) {
+        for (Automovel auto : listaDeAutomoveis) {
+            if (auto.getCodigo() == codigo) {
+                return auto;
+            }
+        }
+        return null;
+    }
+    //</editor-fold>
+
     //<editor-fold defaultstate="collapsed" desc="Consultar por marca">
     @Override
     public List<Automovel> consultarPorMarca(String marca) {
@@ -95,10 +106,13 @@ public class ListaDeAutomoveis implements ListaAutomoveis {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Remove automovel">
+    
     @Override
-    public void removeAutomovel(Automovel auto) {
+    public void removeAutomovel(int codigo) {
         for (Automovel autom : listaDeAutomoveis) {
-            listaDeAutomoveis.remove(auto);
+            if (autom.getCodigo() == codigo) {
+                listaDeAutomoveis.remove(autom);
+            }
         }
     }
     //</editor-fold>
@@ -123,7 +137,7 @@ public class ListaDeAutomoveis implements ListaAutomoveis {
         return true;
     }
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="Ler arquivo">
     //</editor-fold>
 }

@@ -66,7 +66,7 @@ interface ListaAutomoveis {
      * Remove o automovel desejado da lista
      * @param auto 
      */
-    public void removeAutomovel(Automovel auto);
+    public void removeAutomovel(int codigo);
     //</editor-fold>
 
 }

@@ -25,7 +25,7 @@ public enum Cambio {
         return cambio;
     }
     
-    public Cambio verificaCambio(String cambio){
+    public static Cambio verificaCambio(String cambio){
         
         if(cambio.equals(Cambio.AUTOMATICO.getCambio()))
             return Cambio.AUTOMATICO;

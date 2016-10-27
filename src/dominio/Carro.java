@@ -19,11 +19,53 @@ public class Carro extends Automovel {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="construtor">
+    /**
+     * 
+     * @param ano
+     * @param aro
+     * @param cor
+     * @param marca
+     * @param mediaKmLitro
+     * @param modelo
+     * @param opcionais
+     * @param qtdPassageiros
+     * @param valor
+     * @param qtdPortas
+     * @param potenciaMotor
+     * @param cambio 
+     */
     public Carro(int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
             String opcionais, int qtdPassageiros, double valor, int qtdPortas, double potenciaMotor,
             Cambio cambio) {
 
         super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor);
+
+        this.cambio = cambio;
+        this.potenciaMotor = potenciaMotor;
+        this.qtdPortas = qtdPortas;
+    }
+    
+    /**
+     * 
+     * @param codigo
+     * @param ano
+     * @param aro
+     * @param cor
+     * @param marca
+     * @param mediaKmLitro
+     * @param modelo
+     * @param opcionais
+     * @param qtdPassageiros
+     * @param valor
+     * @param qtdPortas
+     * @param potenciaMotor
+     * @param cambio 
+     */
+    public Carro(int codigo, int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
+            String opcionais, int qtdPassageiros, double valor, int qtdPortas, double potenciaMotor,
+            Cambio cambio) {
+
+        super(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor);
 
         this.cambio = cambio;
         this.potenciaMotor = potenciaMotor;
@@ -79,8 +121,9 @@ public class Carro extends Automovel {
     @Override
     public String toString() {
         String dados = super.toString();
-        dados += "\nQuantidade de portas: " + getQtdPortas() + "\nPotencia do motor: " + getPotenciaMotor()
-                + "\nCambio: " + getCambio();
+        dados += this. getQtdPortas()+";";
+        dados += this.getPotenciaMotor()+";";
+        dados += this.getCambio()+";";
         return dados;
     }
     //</editor-fold>

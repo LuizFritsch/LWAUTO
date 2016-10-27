@@ -530,7 +530,6 @@
                               <Component id="jButtonSalvarCadastrar2" min="-2" pref="96" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButtonVoltarCadastrar2" min="-2" pref="101" max="-2" attributes="0"/>
-                              <EmptySpace pref="9" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -840,7 +839,6 @@
                               <Component id="jButtonSalvarCadastrar1" min="-2" pref="96" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButtonVoltarCadastrar1" min="-2" pref="101" max="-2" attributes="0"/>
-                              <EmptySpace pref="9" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">

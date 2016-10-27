@@ -19,11 +19,57 @@ public class CarroUsado extends Carro {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="construtor">
+    /**
+     *
+     * @param ano
+     * @param aro
+     * @param cor
+     * @param marca
+     * @param mediaKmLitro
+     * @param modelo
+     * @param opcionais
+     * @param qtdPassageiros
+     * @param valor
+     * @param qtdPortas
+     * @param potenciaMotor
+     * @param cambio
+     * @param qtdDonos
+     * @param estado
+     * @param finalPlaca
+     */
     public CarroUsado(int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
             String opcionais, int qtdPassageiros, double valor, int qtdPortas, double potenciaMotor,
             Cambio cambio, int qtdDonos, String estado, int finalPlaca) {
 
         super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor, qtdPortas, potenciaMotor, cambio);
+        this.qtdDonos = qtdDonos;
+        this.estado = estado;
+        this.finalPlaca = finalPlaca;
+    }
+    /**
+     * 
+     * @param codigo
+     * @param ano
+     * @param aro
+     * @param cor
+     * @param marca
+     * @param mediaKmLitro
+     * @param modelo
+     * @param opcionais
+     * @param qtdPassageiros
+     * @param valor
+     * @param qtdPortas
+     * @param potenciaMotor
+     * @param cambio
+     * @param qtdDonos
+     * @param estado
+     * @param finalPlaca 
+     */
+    public CarroUsado(int codigo, int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
+            String opcionais, int qtdPassageiros, double valor, int qtdPortas, double potenciaMotor,
+            Cambio cambio, int qtdDonos, String estado, int finalPlaca) {
+
+        super(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor, qtdPortas, potenciaMotor, cambio);
         this.qtdDonos = qtdDonos;
         this.estado = estado;
         this.finalPlaca = finalPlaca;
@@ -79,8 +125,9 @@ public class CarroUsado extends Carro {
     public String toString() {
         String dados;
         dados = super.toString();
-        dados += "\nQuantidade de donos: " + getQtdDonos() + "\nEstado do carro: " + getEstado()
-                + "\nFinal da placa: "+getFinalPlaca();
+        dados += this.getQtdDonos() + ";";
+        dados += this.getEstado() + ";";
+        dados += this.getFinalPlaca() + "\n";
         return dados;
     }
     //</editor-fold>

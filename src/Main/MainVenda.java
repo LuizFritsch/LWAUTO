@@ -5,7 +5,7 @@
  */
 package Main;
 
-import interfaceUsuario.FrameCarroNovo;
+import interfaceUsuario.*;
 
 /**
  *
@@ -14,10 +14,10 @@ import interfaceUsuario.FrameCarroNovo;
 public class MainVenda {
     
     
-    static FrameCarroNovo carroNovo = new FrameCarroNovo();
+    static FramePrincipal principal = new FramePrincipal();
     
     public static void main(String[] args) {
-        carroNovo.setVisible(true);
+        principal.setVisible(true);
     }
     
 }

@@ -5,7 +5,6 @@ package dominio;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author whoami
@@ -13,6 +12,8 @@ package dominio;
 public class Automovel {
 
     //<editor-fold defaultstate="collapsed" desc="atributos">
+    protected static int nmrCarro = 0;
+    protected int codigo;
     protected double mediaKmLitro;
     protected double valor;
     protected int qtdPassageiros;
@@ -25,8 +26,22 @@ public class Automovel {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="construtor">
+    /**
+     *
+     * @param ano
+     * @param aro
+     * @param cor
+     * @param marca
+     * @param mediaKmLitro
+     * @param modelo
+     * @param opcionais
+     * @param qtdPassageiros
+     * @param valor
+     */
     public Automovel(int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
             String opcionais, int qtdPassageiros, double valor) {
+        this.codigo = nmrCarro;
+        nmrCarro++;
         this.ano = ano;
         this.aro = aro;
         this.cor = cor;
@@ -37,9 +52,61 @@ public class Automovel {
         this.qtdPassageiros = qtdPassageiros;
         this.valor = valor;
     }
-    //</editor-fold>
 
+    /**
+     *
+     * @param codigo
+     * @param ano
+     * @param aro
+     * @param cor
+     * @param marca
+     * @param mediaKmLitro
+     * @param modelo
+     * @param opcionais
+     * @param qtdPassageiros
+     * @param valor
+     */
+    public Automovel(int codigo, int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
+            String opcionais, int qtdPassageiros, double valor) {
+        this.codigo = codigo;
+        this.ano = ano;
+        this.aro = aro;
+        this.cor = cor;
+        this.marca = marca;
+        this.mediaKmLitro = mediaKmLitro;
+        this.modelo = modelo;
+        this.opcionais = opcionais;
+        this.qtdPassageiros = qtdPassageiros;
+        this.valor = valor;
+    }
+
+    //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="gets & sets">
+    /**
+     *
+     * @return the nmrCarro
+     */
+    public static int getNmrCarro() {
+        return nmrCarro;
+    }
+
+    /**
+     *
+     * @param nmrCarro
+     */
+    public static void setNmrCarro(int nmrCarro) {
+        Automovel.nmrCarro = nmrCarro;
+    }
+
+    /**
+     *
+     * @return the codigo
+     */
+    public int getCodigo() {
+        return codigo;
+    }
+
     /**
      * @return the mediaKmLitro
      */
@@ -166,14 +233,21 @@ public class Automovel {
         this.cor = cor;
     }
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="toString">
     @Override
     public String toString() {
-        String dados="";
-        dados += "\nAno: " + getAno() + "\nAro: " + getAro() + "\nCor: " + getCor() + "\nMarca: " + getMarca()
-                + "\nMedia de km por litro: " + getMediaKmLitro() + "\nModelo: " + getModelo() + "\nOpcionais: "
-                + getOpcionais() +"\nQuantidade de passageiros: "+getQtdPassageiros() +"\nValor: "+getValor();
+        String dados = "";
+        dados += this.getCodigo() + ";";
+        dados += this.getAno()+";";
+        dados += this.getAro()+";";
+        dados += this.getCor()+";";
+        dados += this.getMarca().getMarca()+";";
+        dados += this.getMediaKmLitro()+";";
+        dados += this.getModelo()+";";
+        dados += this.getOpcionais()+";";
+        dados += this.getQtdPassageiros()+";";
+        dados += this.getValor();
         return dados;
     }
     //</editor-fold>

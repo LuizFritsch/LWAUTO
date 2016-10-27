@@ -45,7 +45,7 @@ public enum Marca {
         return marca;
     }
 
-    public Marca verificaMarca(String marca) {
+    public static Marca verificaMarca(String marca) {
         if (marca.equals(Marca.AUDI.getMarca())) {
             return Marca.AUDI;
         } else if (marca.equals(Marca.BMW.getMarca())) {
