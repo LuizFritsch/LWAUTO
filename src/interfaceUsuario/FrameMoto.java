@@ -35,6 +35,8 @@ public class FrameMoto extends javax.swing.JPanel {
 
         listaAutomoveis = new ListaDeAutomoveis("Moto");
 
+        listaAutomoveis.lerArquivo();
+
         editar.setEnabled(false);
         excluir.setEnabled(false);
         visualizar.setEnabled(false);
@@ -834,7 +836,6 @@ public class FrameMoto extends javax.swing.JPanel {
 
             jTextFieldCorCadastrar1.setText(carro.getCor());
 
-
             jTextFieldMediaKmCadastrar1.setText(String.valueOf(carro.getMediaKmLitro()));
             jTextAreaOpcionaisCadastrar1.setText(carro.getOpcionais());
 
@@ -870,7 +871,7 @@ public class FrameMoto extends javax.swing.JPanel {
     private void jButtonSalvarCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarCadastrarActionPerformed
         int ano = 0, aro = 0, qtdPassageiros = 0, qtdPortas = 0;
         String cor, opcionais, modelo;
-        double valor = 0, mediaKmLitro = 0, potenciaMotor = 0, cilindradas =0;
+        double valor = 0, mediaKmLitro = 0, potenciaMotor = 0, cilindradas = 0;
         Marca marca;
         Cambio cambio;
 
@@ -887,11 +888,10 @@ public class FrameMoto extends javax.swing.JPanel {
             mediaKmLitro = Double.parseDouble(jTextFieldMediaKmCadastrar.getText());
             potenciaMotor = Double.parseDouble(jTextFieldCilindradaCadastrar.getText());
             cilindradas = Double.parseDouble(jTextFieldCilindradaCadastrar.getText());
-            
+
             marca = Marca.verificaMarca(jComboBoxMarcaCadastrar.getSelectedItem().toString());
 
-
-            Moto c = new Moto(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor,  cilindradas);
+            Moto c = new Moto(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor, cilindradas);
 
             try {
                 listaAutomoveis.escreverArquivo();

@@ -20,7 +20,6 @@ import javax.swing.ListModel;
  * @author whoami
  */
 //</editor-fold>
-
 public class FrameCarroNovo extends javax.swing.JPanel {
 
     //<editor-fold defaultstate="collapsed" desc="Atributos">
@@ -41,10 +40,12 @@ public class FrameCarroNovo extends javax.swing.JPanel {
 
         listaAutomoveis = new ListaDeAutomoveis("CarroNovo");
 
+        listaAutomoveis.lerArquivo();
+
         editar.setEnabled(false);
         excluir.setEnabled(false);
         visualizar.setEnabled(false);
-        
+
         for (Marca marca : Marca.values()) {
             jComboBoxMarcaCadastrar.addItem(marca);
             jComboBoxMarcaCadastrar1.addItem(marca);
@@ -927,7 +928,6 @@ public class FrameCarroNovo extends javax.swing.JPanel {
     //</editor-fold>
 
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Buscar">
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
