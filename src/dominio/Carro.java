@@ -5,7 +5,6 @@ package dominio;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author whoami
@@ -16,11 +15,12 @@ public class Carro extends Automovel {
     protected int qtdPortas;
     protected double potenciaMotor;
     protected Cambio cambio;
+    protected int qtdPassageiros;
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="construtor">
     /**
-     * 
+     *
      * @param ano
      * @param aro
      * @param cor
@@ -32,21 +32,22 @@ public class Carro extends Automovel {
      * @param valor
      * @param qtdPortas
      * @param potenciaMotor
-     * @param cambio 
+     * @param cambio
      */
     public Carro(int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
-            String opcionais, int qtdPassageiros, double valor, int qtdPortas, double potenciaMotor,
-            Cambio cambio) {
+            String opcionais, double valor, int qtdPortas, double potenciaMotor, Cambio cambio,
+            int qtdPassageiros) {
 
-        super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor);
+        super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor);
 
         this.cambio = cambio;
         this.potenciaMotor = potenciaMotor;
         this.qtdPortas = qtdPortas;
+        this.qtdPassageiros = qtdPassageiros;
     }
-    
+
     /**
-     * 
+     *
      * @param codigo
      * @param ano
      * @param aro
@@ -59,21 +60,36 @@ public class Carro extends Automovel {
      * @param valor
      * @param qtdPortas
      * @param potenciaMotor
-     * @param cambio 
+     * @param cambio
      */
     public Carro(int codigo, int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
-            String opcionais, int qtdPassageiros, double valor, int qtdPortas, double potenciaMotor,
-            Cambio cambio) {
+            String opcionais, double valor, int qtdPortas, double potenciaMotor,
+            Cambio cambio, int qtdPassageiros) {
 
-        super(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor);
+        super(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor);
 
         this.cambio = cambio;
         this.potenciaMotor = potenciaMotor;
         this.qtdPortas = qtdPortas;
+        this.qtdPassageiros = qtdPassageiros;
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="gets & sets">
+    /**
+     * @return the qtdPassageiros
+     */
+    public int getQtdPassageiros() {
+        return qtdPassageiros;
+    }
+
+    /**
+     * @param qtdPassageiros the qtdPassageiros to set
+     */
+    public void setQtdPassageiros(int qtdPassageiros) {
+        this.qtdPassageiros = qtdPassageiros;
+    }
+
     /**
      * @return the qtdPortas
      */
@@ -121,9 +137,10 @@ public class Carro extends Automovel {
     @Override
     public String toString() {
         String dados = super.toString();
-        dados += this. getQtdPortas()+";";
-        dados += this.getPotenciaMotor()+";";
-        dados += this.getCambio()+";";
+        dados += this.getQtdPortas() + ";";
+        dados += this.getPotenciaMotor() + ";";
+        dados += this.getCambio() + ";";
+        dados += this.getQtdPassageiros() + ";";
         return dados;
     }
     //</editor-fold>

@@ -16,7 +16,6 @@ public class Automovel {
     protected int codigo;
     protected double mediaKmLitro;
     protected double valor;
-    protected int qtdPassageiros;
     protected int ano;
     protected int aro;
     protected Marca marca;
@@ -39,7 +38,7 @@ public class Automovel {
      * @param valor
      */
     public Automovel(int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
-            String opcionais, int qtdPassageiros, double valor) {
+            String opcionais, double valor) {
         this.codigo = nmrCarro;
         nmrCarro++;
         this.ano = ano;
@@ -49,7 +48,6 @@ public class Automovel {
         this.mediaKmLitro = mediaKmLitro;
         this.modelo = modelo;
         this.opcionais = opcionais;
-        this.qtdPassageiros = qtdPassageiros;
         this.valor = valor;
     }
 
@@ -67,7 +65,7 @@ public class Automovel {
      * @param valor
      */
     public Automovel(int codigo, int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
-            String opcionais, int qtdPassageiros, double valor) {
+            String opcionais, double valor) {
         this.codigo = codigo;
         this.ano = ano;
         this.aro = aro;
@@ -76,12 +74,10 @@ public class Automovel {
         this.mediaKmLitro = mediaKmLitro;
         this.modelo = modelo;
         this.opcionais = opcionais;
-        this.qtdPassageiros = qtdPassageiros;
         this.valor = valor;
     }
-
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="gets & sets">
     /**
      *
@@ -133,20 +129,6 @@ public class Automovel {
      */
     public void setValor(double valor) {
         this.valor = valor;
-    }
-
-    /**
-     * @return the qtdPassageiros
-     */
-    public int getQtdPassageiros() {
-        return qtdPassageiros;
-    }
-
-    /**
-     * @param qtdPassageiros the qtdPassageiros to set
-     */
-    public void setQtdPassageiros(int qtdPassageiros) {
-        this.qtdPassageiros = qtdPassageiros;
     }
 
     /**
@@ -239,14 +221,13 @@ public class Automovel {
     public String toString() {
         String dados = "";
         dados += this.getCodigo() + ";";
-        dados += this.getAno()+";";
-        dados += this.getAro()+";";
-        dados += this.getCor()+";";
-        dados += this.getMarca().getMarca()+";";
-        dados += this.getMediaKmLitro()+";";
-        dados += this.getModelo()+";";
-        dados += this.getOpcionais()+";";
-        dados += this.getQtdPassageiros()+";";
+        dados += this.getAno() + ";";
+        dados += this.getAro() + ";";
+        dados += this.getCor() + ";";
+        dados += this.getMarca().getMarca() + ";";
+        dados += this.getMediaKmLitro() + ";";
+        dados += this.getModelo() + ";";
+        dados += this.getOpcionais() + ";";
         dados += this.getValor();
         return dados;
     }

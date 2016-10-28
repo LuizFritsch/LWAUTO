@@ -927,7 +927,6 @@ public class FrameCarroUsado extends javax.swing.JPanel {
     //</editor-fold>
 
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Botao cadastrar">
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JTabbedPaneCarroUsado.setSelectedIndex(1);

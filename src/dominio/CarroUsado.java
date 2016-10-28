@@ -38,10 +38,10 @@ public class CarroUsado extends Carro {
      * @param finalPlaca
      */
     public CarroUsado(int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
-            String opcionais, int qtdPassageiros, double valor, int qtdPortas, double potenciaMotor,
-            Cambio cambio, int qtdDonos, String estado, int finalPlaca) {
+            String opcionais, double valor, int qtdPortas, double potenciaMotor,
+            Cambio cambio, int qtdPassageiros, int qtdDonos, String estado, int finalPlaca) {
 
-        super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor, qtdPortas, potenciaMotor, cambio);
+        super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor, qtdPortas, potenciaMotor, cambio, qtdPassageiros);
         this.qtdDonos = qtdDonos;
         this.estado = estado;
         this.finalPlaca = finalPlaca;
@@ -66,10 +66,10 @@ public class CarroUsado extends Carro {
      * @param finalPlaca 
      */
     public CarroUsado(int codigo, int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
-            String opcionais, int qtdPassageiros, double valor, int qtdPortas, double potenciaMotor,
-            Cambio cambio, int qtdDonos, String estado, int finalPlaca) {
+            String opcionais, double valor, int qtdPortas, double potenciaMotor,
+            Cambio cambio, int qtdPassageiros, int qtdDonos, String estado, int finalPlaca) {
 
-        super(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor, qtdPortas, potenciaMotor, cambio);
+        super(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor, qtdPortas, potenciaMotor, cambio, qtdPassageiros);
         this.qtdDonos = qtdDonos;
         this.estado = estado;
         this.finalPlaca = finalPlaca;

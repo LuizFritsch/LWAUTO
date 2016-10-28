@@ -44,7 +44,7 @@ public class FrameCarroNovo extends javax.swing.JPanel {
         editar.setEnabled(false);
         excluir.setEnabled(false);
         visualizar.setEnabled(false);
-
+        
         for (Marca marca : Marca.values()) {
             jComboBoxMarcaCadastrar.addItem(marca);
             jComboBoxMarcaCadastrar1.addItem(marca);
@@ -1003,7 +1003,7 @@ public class FrameCarroNovo extends javax.swing.JPanel {
 
             cambio = Cambio.verificaCambio(jComboBoxCambioCadastrar.getSelectedItem().toString());
 
-            CarroNovo c = new CarroNovo(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor, qtdPortas, potenciaMotor, cambio);
+            CarroNovo c = new CarroNovo(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor, qtdPortas, potenciaMotor, cambio, qtdPassageiros);
 
             try {
                 listaAutomoveis.escreverArquivo();

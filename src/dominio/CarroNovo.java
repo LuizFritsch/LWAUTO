@@ -28,10 +28,10 @@ public class CarroNovo extends Carro {
      * @param cambio 
      */
     public CarroNovo(int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
-            String opcionais, int qtdPassageiros, double valor, int qtdPortas, double potenciaMotor,
-            Cambio cambio) {
+            String opcionais, double valor, int qtdPortas, double potenciaMotor,
+            Cambio cambio, int qtdPassageiros) {
 
-        super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor, qtdPortas, potenciaMotor, cambio);
+        super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor, qtdPortas, potenciaMotor, cambio, qtdPassageiros);
     }
 
     /**
@@ -51,10 +51,9 @@ public class CarroNovo extends Carro {
      * @param cambio 
      */
      public CarroNovo(int codigo, int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
-            String opcionais, int qtdPassageiros, double valor, int qtdPortas, double potenciaMotor,
-            Cambio cambio) {
+            String opcionais, double valor, int qtdPortas, double potenciaMotor, Cambio cambio,  int qtdPassageiros) {
 
-        super(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor, qtdPortas, potenciaMotor, cambio);
+        super(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor, qtdPortas, potenciaMotor, cambio, qtdPassageiros);
     }
     //</editor-fold>
 
