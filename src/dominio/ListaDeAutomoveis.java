@@ -5,8 +5,15 @@
  */
 package dominio;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  *
@@ -106,7 +113,6 @@ public class ListaDeAutomoveis implements ListaAutomoveis {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Remove automovel">
-    
     @Override
     public void removeAutomovel(int codigo) {
         for (Automovel autom : listaDeAutomoveis) {
@@ -119,6 +125,15 @@ public class ListaDeAutomoveis implements ListaAutomoveis {
 
     //<editor-fold defaultstate="collapsed" desc="Escrever no arquivo">
     public boolean escreverArquivo() {
+        try {
+            BufferedWriter nroImoveis = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + System.getProperty("file.separator") + "max.txt"));
+            nroImoveis.write(Automovel.getNmrCarro() + "\n");
+            nroImoveis.close();
+        } catch (FileNotFoundException ex) {
+            return false;
+        } catch (IOException e) {
+            return false;
+        }
         try {
             BufferedWriter strWriter = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
 
@@ -139,5 +154,128 @@ public class ListaDeAutomoveis implements ListaAutomoveis {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Ler arquivo">
-    //</editor-fold>
+    public boolean lerArquivo() throws FileNotFoundException, IOException {
+        try {
+            BufferedReader nroImo = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + "max.txt"));
+            Automovel.setNmrCarro(Integer.parseInt(nroImo.readLine()));
+            nroImo.close();
+        } catch (FileNotFoundException ex) {
+            return false;
+        } catch (IOException e) {
+            return false;
+        }
+        try {
+            BufferedReader strReader = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
+            switch (this.tipo) {
+
+                case "CarroNovo":
+                    String line;
+                    String[] s;
+
+                    while ((line = strReader.readLine()) != null) {
+                        s = line.split(";");
+                        int ano, aro, qtdPortas, qtdPassageiros, codigo;
+                        double mediaKmLitro, valor, potenciaMotor;
+                        String cor, opcionais, modelo;
+                        Cambio cambio = null;
+                        Marca marca = null;
+
+                        codigo = Integer.parseInt(s[0]);
+                        ano = Integer.parseInt(s[1]);
+                        aro = Integer.parseInt(s[2]);
+                        cor = s[3];
+                        marca = marca.verificaMarca(s[4]);
+                        mediaKmLitro = Double.parseDouble(s[5]);
+                        modelo = s[6];
+                        opcionais = s[7];
+                        valor = Double.parseDouble(s[8]);
+                        qtdPortas = Integer.parseInt(s[9]);
+                        potenciaMotor = Double.parseDouble(s[10]);
+                        cambio = cambio.verificaCambio(s[11]);
+                        qtdPassageiros = Integer.parseInt(s[12]);
+
+                        CarroNovo c = new CarroNovo(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais,
+                                valor, qtdPortas, potenciaMotor, cambio, qtdPassageiros);
+                        this.incluir(c);
+
+                    }
+
+                    break;
+
+                case "CarroUsado":
+
+                    while ((line = strReader.readLine()) != null) {
+
+                        s = line.split(";");
+                        int ano, aro, qtdPortas, qtdPassageiros, codigo, qtdDonos, finalPlaca;
+                        double mediaKmLitro, valor, potenciaMotor;
+                        String cor, opcionais, modelo, estado;
+                        Cambio cambio = null;
+                        Marca marca = null;
+
+                        codigo = Integer.parseInt(s[0]);
+                        ano = Integer.parseInt(s[1]);
+                        aro = Integer.parseInt(s[2]);
+                        cor = s[3];
+                        marca = marca.verificaMarca(s[4]);
+                        mediaKmLitro = Double.parseDouble(s[5]);
+                        modelo = s[6];
+                        opcionais = s[7];
+                        valor = Double.parseDouble(s[8]);
+                        qtdPortas = Integer.parseInt(s[9]);
+                        potenciaMotor = Double.parseDouble(s[10]);
+                        cambio = cambio.verificaCambio(s[11]);
+                        qtdPassageiros = Integer.parseInt(s[12]);
+                        qtdDonos = Integer.parseInt(s[13]);
+                        estado = s[14];
+                        finalPlaca = Integer.parseInt(s[15]);
+
+                        CarroUsado c = new CarroUsado(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais,
+                                valor, qtdPortas, potenciaMotor, cambio, qtdPassageiros, qtdDonos, estado, finalPlaca);
+                        this.incluir(c);
+
+                    }
+                    break;
+
+                case "Moto":
+                    while ((line = strReader.readLine()) != null) {
+                        s = line.split(";");
+                        int ano, aro, qtdPortas, qtdPassageiros, codigo;
+                        double mediaKmLitro, valor, potenciaMotor, cilindradas;
+                        String cor, opcionais, modelo;
+                        Cambio cambio = null;
+                        Marca marca = null;
+
+                        codigo = Integer.parseInt(s[0]);
+                        ano = Integer.parseInt(s[1]);
+                        aro = Integer.parseInt(s[2]);
+                        cor = s[3];
+                        marca = marca.verificaMarca(s[4]);
+                        mediaKmLitro = Double.parseDouble(s[5]);
+                        modelo = s[6];
+                        opcionais = s[7];
+                        valor = Double.parseDouble(s[8]);
+                        qtdPortas = Integer.parseInt(s[9]);
+                        potenciaMotor = Double.parseDouble(s[10]);
+                        cambio = cambio.verificaCambio(s[11]);
+                        qtdPassageiros = Integer.parseInt(s[12]);
+                        cilindradas = Double.parseDouble(s[13]);
+
+                        Moto c = new Moto(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor, cilindradas);
+                        this.incluir(c);
+
+                    }
+
+                    break;
+
+            }
+        } catch (FileNotFoundException ex) {
+            return false;
+
+        } catch (IOException ex) {
+            return false;
+        }
+        return true;
+    }
 }
+//</editor-fold>
