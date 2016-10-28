@@ -927,6 +927,7 @@ public class FrameCarroUsado extends javax.swing.JPanel {
     //</editor-fold>
 
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Botao cadastrar">
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JTabbedPaneCarroUsado.setSelectedIndex(1);
@@ -1023,8 +1024,8 @@ public class FrameCarroUsado extends javax.swing.JPanel {
 
             cambio = Cambio.verificaCambio(jComboBoxCambioCadastrar.getSelectedItem().toString());
 
-            CarroUsado c = new CarroUsado(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais,
-                    qtdPassageiros, valor, qtdPortas, potenciaMotor, cambio, donos, estado, finalPlaca);
+            CarroUsado c = new CarroUsado(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor,
+                    qtdPortas, potenciaMotor, cambio, qtdPassageiros, donos, estado, finalPlaca);            
 
             try {
                 listaAutomoveis.escreverArquivo();

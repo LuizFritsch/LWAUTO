@@ -17,7 +17,7 @@ public class Moto extends Automovel {
 
     //<editor-fold defaultstate="collapsed" desc="construtor">
     /**
-     * 
+     *
      * @param ano
      * @param aro
      * @param cor
@@ -27,17 +27,17 @@ public class Moto extends Automovel {
      * @param opcionais
      * @param qtdPassageiros
      * @param valor
-     * @param cilindradas 
+     * @param cilindradas
      */
     public Moto(int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
             String opcionais, int qtdPassageiros, double valor, double cilindradas) {
 
-        super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor);
+        super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor);
         this.cilindradas = cilindradas;
     }
-    
+
     /**
-     * 
+     *
      * @param codigo
      * @param ano
      * @param aro
@@ -48,12 +48,12 @@ public class Moto extends Automovel {
      * @param opcionais
      * @param qtdPassageiros
      * @param valor
-     * @param cilindradas 
+     * @param cilindradas
      */
     public Moto(int codigo, int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
             String opcionais, int qtdPassageiros, double valor, double cilindradas) {
 
-        super(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor);
+        super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor);
         this.cilindradas = cilindradas;
     }
     //</editor-fold>

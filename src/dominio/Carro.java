@@ -40,9 +40,9 @@ public class Carro extends Automovel {
 
         super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor);
 
-        this.cambio = cambio;
-        this.potenciaMotor = potenciaMotor;
         this.qtdPortas = qtdPortas;
+        this.potenciaMotor = potenciaMotor;
+        this.cambio = cambio;
         this.qtdPassageiros = qtdPassageiros;
     }
 
