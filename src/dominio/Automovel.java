@@ -219,8 +219,7 @@ public class Automovel {
     //<editor-fold defaultstate="collapsed" desc="toString">
     @Override
     public String toString() {
-        String dados = "";
-        dados += this.getCodigo() + ";";
+        String dados = this.getCodigo() + ";";
         dados += this.getAno() + ";";
         dados += this.getAro() + ";";
         dados += this.getCor() + ";";

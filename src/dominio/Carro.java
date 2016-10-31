@@ -139,9 +139,9 @@ public class Carro extends Automovel {
         String dados = super.toString();
         dados += this.getQtdPortas() + ";";
         dados += this.getPotenciaMotor() + ";";
-        dados += this.getCambio() + ";";
+        dados += this.getCambio().getCambio() + ";";
         dados += this.getQtdPassageiros() + ";";
-        return dados;
+        return dados;        
     }
     //</editor-fold>
 

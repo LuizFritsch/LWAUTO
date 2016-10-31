@@ -123,11 +123,10 @@ public class CarroUsado extends Carro {
     //<editor-fold defaultstate="collapsed" desc="toString">
     @Override
     public String toString() {
-        String dados;
-        dados = super.toString();
-        dados += this.getQtdDonos() + ";";
-        dados += this.getEstado() + ";";
-        dados += this.getFinalPlaca() + "\n";
+        String dados = super.toString();
+        dados += qtdDonos + ";";
+        dados += estado + ";";
+        dados += finalPlaca + "\n";
         return dados;
     }
     //</editor-fold>

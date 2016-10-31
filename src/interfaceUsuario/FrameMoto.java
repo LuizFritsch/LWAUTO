@@ -23,7 +23,7 @@ import javax.swing.ListModel;
  */
 public class FrameMoto extends javax.swing.JFrame {
 
-        //<editor-fold defaultstate="collapsed" desc="Atributos">
+    //<editor-fold defaultstate="collapsed" desc="Atributos">
     private ListaDeAutomoveis listaAutomoveis;
     Moto carro;
     private int excluira;
@@ -35,7 +35,7 @@ public class FrameMoto extends javax.swing.JFrame {
     public FrameMoto() {
         initComponents();
         DefaultListModel listModel = new DefaultListModel();
-        
+
         this.setLocationRelativeTo(null);
         this.setTitle("Moto");
 
@@ -44,7 +44,7 @@ public class FrameMoto extends javax.swing.JFrame {
         try {
             listaAutomoveis.lerArquivo();
         } catch (IOException ex) {
-            Logger.getLogger(FrameMoto.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erro ao ler");
         }
 
         editar.setEnabled(false);
@@ -58,7 +58,7 @@ public class FrameMoto extends javax.swing.JFrame {
 
     }
 
-        //<editor-fold defaultstate="collapsed" desc="Funcoes Listar">
+    //<editor-fold defaultstate="collapsed" desc="Funcoes Listar">
     //<editor-fold defaultstate="collapsed" desc="Listar">
     /**
      * metodo listar um carro novo
@@ -121,7 +121,6 @@ public class FrameMoto extends javax.swing.JFrame {
     //</editor-fold>
 
     //</editor-fold>
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -353,6 +352,11 @@ public class FrameMoto extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextAreaOpcionaisCadastrar);
 
         jButtonVoltarCadastrar.setText("Voltar");
+        jButtonVoltarCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarCadastrarActionPerformed(evt);
+            }
+        });
 
         jButtonSalvarCadastrar.setText("Salvar");
         jButtonSalvarCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -487,6 +491,11 @@ public class FrameMoto extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTextAreaOpcionaisCadastrar1);
 
         jButtonVoltarCadastrar1.setText("Voltar");
+        jButtonVoltarCadastrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarCadastrar1ActionPerformed(evt);
+            }
+        });
 
         jButtonSalvarEditar.setText("Salvar");
         jButtonSalvarEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -634,6 +643,11 @@ public class FrameMoto extends javax.swing.JFrame {
         jLabel28.setText("Modelo:");
 
         jButtonVoltarCadastrar2.setText("Voltar");
+        jButtonVoltarCadastrar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarCadastrar2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -787,7 +801,8 @@ public class FrameMoto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        this.dispose();
+        new FrameInicial().setVisible(true);        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jListAutomovelValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListAutomovelValueChanged
@@ -883,20 +898,20 @@ public class FrameMoto extends javax.swing.JFrame {
     private void excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirActionPerformed
         DefaultListModel listModel = new DefaultListModel();
         excluira = JOptionPane.showConfirmDialog(
-            null,
-            "Deseja realmente excluir este automovel ?",
-            "Excluir",
-            JOptionPane.YES_NO_OPTION);
+                null,
+                "Deseja realmente excluir este automovel ?",
+                "Excluir",
+                JOptionPane.YES_NO_OPTION);
         if (excluira == JOptionPane.YES_OPTION) {
             listaAutomoveis.removeAutomovel(Integer.parseInt(
-                jListAutomovel.getSelectedValue().toString()));
-        boolean boo = listaAutomoveis.escreverArquivo();
-        if (boo) {
-            System.out.println("excluido de boa!!! :)");
-        }
-        listModel.removeAllElements();
-        listModel.clear();
-        listarTudo();
+                    jListAutomovel.getSelectedValue().toString()));
+            boolean boo = listaAutomoveis.escreverArquivo();
+            if (boo) {
+                System.out.println("excluido de boa!!! :)");
+            }
+            listModel.removeAllElements();
+            listModel.clear();
+            listarTudo();
         }
     }//GEN-LAST:event_excluirActionPerformed
 
@@ -928,8 +943,9 @@ public class FrameMoto extends javax.swing.JFrame {
             marca = Marca.verificaMarca(jComboBoxMarcaCadastrar.getSelectedItem().toString());
 
             Moto c = new Moto(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor, cilindradas);
-
+            
             try {
+                listaAutomoveis.incluir(c);
                 listaAutomoveis.escreverArquivo();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
@@ -976,6 +992,30 @@ public class FrameMoto extends javax.swing.JFrame {
     private void jTextFieldAroCadastrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAroCadastrar2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAroCadastrar2ActionPerformed
+
+    private void jButtonVoltarCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarCadastrarActionPerformed
+        JTabbedPaneMoto.setSelectedIndex(0);
+        JTabbedPaneMoto.setEnabledAt(0, true);
+        JTabbedPaneMoto.setEnabledAt(1, false);
+        JTabbedPaneMoto.setEnabledAt(2, false);
+        JTabbedPaneMoto.setEnabledAt(3, false);
+    }//GEN-LAST:event_jButtonVoltarCadastrarActionPerformed
+
+    private void jButtonVoltarCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarCadastrar1ActionPerformed
+        JTabbedPaneMoto.setSelectedIndex(0);
+        JTabbedPaneMoto.setEnabledAt(0, true);
+        JTabbedPaneMoto.setEnabledAt(1, false);
+        JTabbedPaneMoto.setEnabledAt(2, false);
+        JTabbedPaneMoto.setEnabledAt(3, false);
+    }//GEN-LAST:event_jButtonVoltarCadastrar1ActionPerformed
+
+    private void jButtonVoltarCadastrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarCadastrar2ActionPerformed
+        JTabbedPaneMoto.setSelectedIndex(0);
+        JTabbedPaneMoto.setEnabledAt(0, true);
+        JTabbedPaneMoto.setEnabledAt(1, false);
+        JTabbedPaneMoto.setEnabledAt(2, false);
+        JTabbedPaneMoto.setEnabledAt(3, false);
+    }//GEN-LAST:event_jButtonVoltarCadastrar2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -77,9 +77,8 @@ public class Moto extends Automovel {
     //<editor-fold defaultstate="collapsed" desc="toString">
     @Override
     public String toString() {
-        String dados;
-        dados = super.toString();
-        dados += this.getCilindradas() + "\n";
+        String dados = super.toString();
+        dados += cilindradas + "\n";
         return dados;
     }
     //</editor-fold>
