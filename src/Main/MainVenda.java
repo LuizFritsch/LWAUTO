@@ -13,11 +13,8 @@ import interfaceUsuario.*;
  */
 public class MainVenda {
     
-    
-    static FramePrincipal principal = new FramePrincipal();
-    
     public static void main(String[] args) {
-        principal.setVisible(true);
+        new FrameInicial().setVisible(true);
     }
     
 }

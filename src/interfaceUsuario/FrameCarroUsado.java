@@ -8,7 +8,10 @@ package interfaceUsuario;
     //<editor-fold defaultstate="collapsed" desc="Imports">
 import dominio.*;
 import java.awt.HeadlessException;
+import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
@@ -38,7 +41,11 @@ public class FrameCarroUsado extends javax.swing.JPanel {
 
         listaAutomoveis = new ListaDeAutomoveis("CarroUsado");
         
-        listaAutomoveis.lerArquivo();
+        try {
+            listaAutomoveis.lerArquivo();
+        } catch (IOException ex) {
+            Logger.getLogger(FrameCarroUsado.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         editar.setEnabled(false);
         excluir.setEnabled(false);
