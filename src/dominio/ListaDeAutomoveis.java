@@ -261,7 +261,8 @@ public class ListaDeAutomoveis implements ListaAutomoveis {
                         qtdPassageiros = Integer.parseInt(s[12]);
                         cilindradas = Double.parseDouble(s[13]);
 
-                        Moto c = new Moto(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor, cilindradas);
+                        Moto c = new Moto(codigo, ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor, cilindradas);
+                        
                         this.incluir(c);
 
                     }

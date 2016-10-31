@@ -1161,13 +1161,14 @@ public class FrameCarroUsado extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxMarcaCadastrarActionPerformed
 
     private void jButtonSalvarCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarCadastrarActionPerformed
-        int ano = 0, aro = 0, qtdPassageiros = 0, qtdPortas = 0, donos = 0, finalPlaca = 0;
-        String cor, opcionais, modelo, estado;
-        double valor = 0, mediaKmLitro = 0, potenciaMotor = 0;
-        Marca marca;
-        Cambio cambio;
 
         try {
+
+            int ano = 0, aro = 0, qtdPassageiros = 0, qtdPortas = 0, donos = 0, finalPlaca = 0;
+            String cor, opcionais, modelo, estado;
+            double valor = 0, mediaKmLitro = 0, potenciaMotor = 0;
+            Marca marca;
+            Cambio cambio;
 
             ano = Integer.parseInt(jTextFieldAnoCadastrar.getText());
             aro = Integer.parseInt(jTextFieldAroCadastrar.getText());
@@ -1192,8 +1193,13 @@ public class FrameCarroUsado extends javax.swing.JFrame {
             CarroUsado c = new CarroUsado(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor,
                     qtdPortas, potenciaMotor, cambio, qtdPassageiros, donos, estado, finalPlaca);
 
+            boolean lol = listaAutomoveis.incluir(c);
+            
+            if (lol) {
+                System.out.println("adicionado com sucesso");
+            }
             try {
-                listaAutomoveis.incluir(c);
+
                 listaAutomoveis.escreverArquivo();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());

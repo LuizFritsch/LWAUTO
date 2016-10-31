@@ -25,12 +25,11 @@ public class Moto extends Automovel {
      * @param mediaKmLitro
      * @param modelo
      * @param opcionais
-     * @param qtdPassageiros
      * @param valor
      * @param cilindradas
      */
     public Moto(int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
-            String opcionais, int qtdPassageiros, double valor, double cilindradas) {
+            String opcionais, double valor, double cilindradas) {
 
         super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor);
         this.cilindradas = cilindradas;
@@ -46,12 +45,11 @@ public class Moto extends Automovel {
      * @param mediaKmLitro
      * @param modelo
      * @param opcionais
-     * @param qtdPassageiros
      * @param valor
      * @param cilindradas
      */
     public Moto(int codigo, int ano, int aro, String cor, Marca marca, double mediaKmLitro, String modelo,
-            String opcionais, int qtdPassageiros, double valor, double cilindradas) {
+            String opcionais, double valor, double cilindradas) {
 
         super(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor);
         this.cilindradas = cilindradas;

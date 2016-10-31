@@ -802,7 +802,7 @@ public class FrameMoto extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
-        new FrameInicial().setVisible(true);        
+        new FrameInicial().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jListAutomovelValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListAutomovelValueChanged
@@ -920,13 +920,12 @@ public class FrameMoto extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxMarcaCadastrarActionPerformed
 
     private void jButtonSalvarCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarCadastrarActionPerformed
-        int ano = 0, aro = 0, qtdPassageiros = 0, qtdPortas = 0;
-        String cor, opcionais, modelo;
-        double valor = 0, mediaKmLitro = 0, potenciaMotor = 0, cilindradas = 0;
-        Marca marca;
-        Cambio cambio;
 
         try {
+            int ano = 0, aro = 0;
+            String cor, opcionais, modelo;
+            double valor = 0, mediaKmLitro = 0, cilindradas = 0;
+            Marca marca;
 
             ano = Integer.parseInt(jTextFieldAnoCadastrar.getText());
             aro = Integer.parseInt(jTextFieldAroCadastrar.getText());
@@ -937,15 +936,18 @@ public class FrameMoto extends javax.swing.JFrame {
 
             valor = Double.parseDouble(jTextFieldValorCadastrar.getText());
             mediaKmLitro = Double.parseDouble(jTextFieldMediaKmCadastrar.getText());
-            potenciaMotor = Double.parseDouble(jTextFieldCilindradaCadastrar.getText());
             cilindradas = Double.parseDouble(jTextFieldCilindradaCadastrar.getText());
 
             marca = Marca.verificaMarca(jComboBoxMarcaCadastrar.getSelectedItem().toString());
 
-            Moto c = new Moto(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, qtdPassageiros, valor, cilindradas);
-            
+            Moto c = new Moto(ano, aro, cor, marca, mediaKmLitro, modelo, opcionais, valor, cilindradas);
+
             try {
                 listaAutomoveis.incluir(c);
+            } catch (Exception e) {
+                System.out.println("erro ao adicionar");
+            }
+            try {
                 listaAutomoveis.escreverArquivo();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
